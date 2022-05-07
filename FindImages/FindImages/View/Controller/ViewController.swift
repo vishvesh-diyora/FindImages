@@ -52,10 +52,13 @@ class ViewController: UIViewController {
     }
     
     func getImages() {
+        if !NetworkManager.isConnectedToNetwork() {
+            return
+        }
         self.page += 1
         let searchText = (searchTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         if searchText != "" {
-            ImagesViewModel.shared.getImagesApiCall(page: page,search: searchText,completion: { data in
+            ImagesViewModel.shared.getImagesApiCall(parentVC: self, page: page,search: searchText,completion: { data in
                 if self.page == 1 {
                     self.photos = data?.photos ?? []
                     if data?.photos?.count == 0 {
