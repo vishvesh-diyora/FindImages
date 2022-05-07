@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ImageCollectionViewCell" customModule="FindImages" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="198"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zAF-BH-hkF">
+                    <rect key="frame" x="0.0" y="0.0" width="205" height="198"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="205" id="twX-Mz-FyX"/>
+                        <constraint firstAttribute="height" constant="198" id="yBa-Nw-hU2"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="zAF-BH-hkF" secondAttribute="bottom" id="AIa-xJ-3ji"/>
+                <constraint firstAttribute="trailing" secondItem="zAF-BH-hkF" secondAttribute="trailing" id="abx-78-C2k"/>
+                <constraint firstItem="zAF-BH-hkF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cod-gG-1yy"/>
+                <constraint firstItem="zAF-BH-hkF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jlR-wC-bC2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="photoHeight" destination="yBa-Nw-hU2" id="DOj-6X-YML"/>
+                <outlet property="photoImageView" destination="zAF-BH-hkF" id="Jql-bZ-tl7"/>
+                <outlet property="photoWidth" destination="twX-Mz-FyX" id="e3E-Uc-Lq1"/>
+            </connections>
+            <point key="canvasLocation" x="-13.768115942028986" y="334.15178571428572"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
