@@ -53,6 +53,7 @@ class ViewController: UIViewController {
     
     func getImages() {
         if !NetworkManager.isConnectedToNetwork() {
+            self.isNextAvailable = true
             return
         }
         self.page += 1
