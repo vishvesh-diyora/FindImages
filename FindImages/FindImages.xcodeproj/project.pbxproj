@@ -20,6 +20,8 @@
 		78AA1025282694E3009DF405 /* ImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA1024282694E3009DF405 /* ImagesViewModel.swift */; };
 		78AA102728269CE3009DF405 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA102628269CE3009DF405 /* ImageCollectionViewCell.swift */; };
 		78AA102928269CEF009DF405 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78AA102828269CEF009DF405 /* ImageCollectionViewCell.xib */; };
+		78D4AED92826B319001378E4 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D4AED82826B319001378E4 /* RealmManager.swift */; };
+		78D4AEDB2826BDA1001378E4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D4AEDA2826BDA1001378E4 /* NetworkManager.swift */; };
 		F1F7EFCF4B81A3CEDD4917AC /* Pods_FindImages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D26707EDEE3FFAC4D9C9476 /* Pods_FindImages.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +42,8 @@
 		78AA1024282694E3009DF405 /* ImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewModel.swift; sourceTree = "<group>"; };
 		78AA102628269CE3009DF405 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		78AA102828269CEF009DF405 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		78D4AED82826B319001378E4 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		78D4AEDA2826BDA1001378E4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		9187A783CBCF398C9C41B266 /* Pods-FindImages.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindImages.release.xcconfig"; path = "Target Support Files/Pods-FindImages/Pods-FindImages.release.xcconfig"; sourceTree = "<group>"; };
 		FC6B6A29835370DA93B47E16 /* Pods-FindImages.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindImages.debug.xcconfig"; path = "Target Support Files/Pods-FindImages/Pods-FindImages.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				78AA1014282691A7009DF405 /* APIManager.swift */,
+				78D4AED82826B319001378E4 /* RealmManager.swift */,
+				78D4AEDA2826BDA1001378E4 /* NetworkManager.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -296,11 +302,13 @@
 				78AA1015282691A7009DF405 /* APIManager.swift in Sources */,
 				78AA1025282694E3009DF405 /* ImagesViewModel.swift in Sources */,
 				78AA10052826885E009DF405 /* ViewController.swift in Sources */,
+				78D4AEDB2826BDA1001378E4 /* NetworkManager.swift in Sources */,
 				78AA10012826885E009DF405 /* AppDelegate.swift in Sources */,
 				78AA101A28269324009DF405 /* ImagesResponse.swift in Sources */,
 				78AA102728269CE3009DF405 /* ImageCollectionViewCell.swift in Sources */,
 				78AA101C28269324009DF405 /* Src.swift in Sources */,
 				78AA10032826885E009DF405 /* SceneDelegate.swift in Sources */,
+				78D4AED92826B319001378E4 /* RealmManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +456,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5A693V6KR5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindImages/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -476,6 +485,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 5A693V6KR5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FindImages/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

@@ -24,6 +24,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     func configureCell(_ photo: Photos) {
         photoImageView.contentMode = .scaleAspectFill
         photoImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        photoImageView.sd_setImage(with: URL(string: photo.src?.small ?? ""))
+        photoImageView.sd_setImage(with: URL(string: photo.src?.medium ?? ""))
     }
 }

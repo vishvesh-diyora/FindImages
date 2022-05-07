@@ -27,8 +27,8 @@ class ViewController: UIViewController {
     }
     var size: CGFloat = 0.0
     var photos : [Photos] = []
-    var page = 1
-    var isNextAvailable = false
+    var page = 0
+    var isNextAvailable = true
     
     //MARK: LifeCycles
     override func viewDidLoad() {
@@ -52,18 +52,25 @@ class ViewController: UIViewController {
     }
     
     func getImages() {
-        if (searchTextField.text ?? "") != "" {
-            ImagesViewModel.shared.getImagesApiCall(page: page,search: searchTextField.text ?? "",completion: { data in
+        self.page += 1
+        let searchText = (searchTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        if searchText != "" {
+            ImagesViewModel.shared.getImagesApiCall(page: page,search: searchText,completion: { data in
                 if self.page == 1 {
                     self.photos = data?.photos ?? []
+                    if data?.photos?.count == 0 {
+                        self.noDataAlert()
+                    }
                 } else {
                     self.photos.append(contentsOf: data?.photos ?? [])
                 }
+                RealmManager.shared.savePhotoList(terms: searchText, results: self.photos, lastPage: self.page)
                 self.isNextAvailable = !(data?.photos?.count == 0)
                 self.imagesCollectionView.reloadData()
             })
         } else {
             self.photos = []
+            RealmManager.shared.savePhotoList(terms: searchText, results: self.photos, lastPage: self.page)
             self.imagesCollectionView.reloadData()
         }
     }
@@ -72,6 +79,13 @@ class ViewController: UIViewController {
         let newValue = (self.columnSlider.value / Float(1)).rounded() * Float(1)
         self.columnSlider.setValue(newValue, animated: false)
         self.columnCount = Int(Double(self.columnSlider.value))
+    }
+    
+    func noDataAlert() {
+        let alert = UIAlertController(title: "No Data Found.", message: nil, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(alertAction)
+        self.present(alert, animated: true)
     }
 }
 
@@ -94,8 +108,7 @@ extension ViewController : UICollectionViewDelegate, UICollectionViewDataSource 
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == self.photos.count - 1 && self.isNextAvailable {
-            self.page += 1
+        if (indexPath.row == self.photos.count - 1) && self.isNextAvailable {
             self.getImages()
         }
     }
@@ -109,6 +122,7 @@ extension ViewController:  UICollectionViewDelegateFlowLayout {
     }
 }
 
+//MARK: SearchBar Delegate Methods
 extension ViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -120,8 +134,15 @@ extension ViewController: UISearchBarDelegate {
     }
     
     func searchImage() {
+        let searchText = (searchTextField.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        self.photos = RealmManager.shared.getPhotoList(terms: searchText)
+        self.imagesCollectionView.reloadData()
         self.searchTextField.resignFirstResponder()
-        self.page = 1
+        if NetworkManager.isConnectedToNetwork() {
+            self.page = 0
+        } else {
+            self.page = RealmManager.shared.getLastPage(terms: searchText)
+        }
         self.isNextAvailable = false
         self.getImages()
     }

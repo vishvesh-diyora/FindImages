@@ -9,6 +9,6 @@ target 'FindImages' do
 pod 'Alamofire'
 pod 'ObjectMapper'
 pod 'SDWebImage'
-
+pod 'RealmSwift'
 
 end
